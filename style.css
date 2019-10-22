@@ -3,15 +3,17 @@ body {
 }
 
 .hidden {
-	display: none;
+	font-size: 0;
 }
 .box {
 	width: 300px;
 	height: 300px;
 	border: 2px solid black;
 }
-p {
+div {
+	width: 10px;
+	font-size: 30px;
 	display: inline-block;
-	margin-left: 2px
+	margin-left: 2px;
 	border-bottom: 1px solid black;
 }

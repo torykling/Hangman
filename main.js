@@ -8,14 +8,15 @@ class HiddenWord {
 	}
 	createLetterDivs() {
 		for (let i = 0; i < this.array.length; i ++) {
-			main.appendChild(document.createElement("p"))
+			main.appendChild(document.createElement("div"))
 		}
 	}
 	addLetterContent() {
-		let hiddenLetters = document.querySelectorAll("p")
+		let hiddenLetters = document.querySelectorAll("div")
 		for (let i = 0; i < this.array.length; i ++) {
 			hiddenLetters[i].innerText = this.array[i]
 			hiddenLetters[i].classList.add("hidden")
+			// hiddenLetters[i].classList.add("letters")
 		}
 	}	
 }
@@ -46,17 +47,12 @@ class Game {
 		this.hangman = new Hangman 
 	}
 	checkLetters(letters) {
-		let hiddenLetters = document.querySelectorAll("p")
+		let hiddenLetters = document.querySelectorAll("div")
 		letters.forEach(letter => {
 			for(let i = 0; i < hiddenLetters.length; i ++) {
 				if(letter === hiddenLetters[i].innerText) {
 					hiddenLetters[i].classList.remove("hidden")
 				} 
-			}
-			for (let i = 0; i < hiddenLetters.length; i++) {
-				if(letter !== hiddenLetters[i].innerText) {
-					this.hangman.buildOn()
-				}
 			}
 		})
 	}
