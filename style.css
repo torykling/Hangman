@@ -1,5 +1,5 @@
 body {
-
+	background-color: pink;
 }
 
 h1 {
@@ -16,8 +16,10 @@ div {
 	border-bottom: 1px solid black;
 }
 main {
-	width: 80%;
+	width: 50%;
 	margin: 0 auto;
+	text-align: center;
+	padding: 0;
 }
 
 .hidden {
@@ -31,13 +33,10 @@ main {
 	margin: 0 auto;
 }
 
-.hangman {
-	display: inline-block;
-	width: 200px;
-	height: 200px;
-	border: 2px solid black;
+.flower {
+	width: 80%;
+	margin-bottom: 0;
 }
-
 .keyboard {
 	width: 80%;
 	margin: 0 auto;

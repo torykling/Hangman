@@ -2,6 +2,7 @@
 const main = document.querySelector("main")
 const box = document.querySelector(".box")
 const hangman = document.querySelector(".hangman")
+const img = document.querySelector("img")
 
 class HiddenWord {
 	constructor(word) {
@@ -26,12 +27,8 @@ class Hangman {
 	}
 	buildOn() {
 		this.size ++
-		hangman.appendChild(document.createElement("p"))
-		let badOmens = document.querySelectorAll("p")
-		for (let i = 0; i < badOmens.length; i++) {
-			badOmens[i].innerText = "X"
+		img.setAttribute("src", `img/flowerError${this.size}.png`)
 		}
-	}
 }
 class Game {
 	constructor(word) {
@@ -52,8 +49,8 @@ class Game {
 		if (letterAppearanceCount === 0) {
 			this.hangman.buildOn()
 		}
-		if (this.hangman.size > 10) {
-			alert("Oh no!")
+		if (this.hangman.size > 9) {
+			main.appendChild(document.createElement("p"))
 		}
 	}
 	addLetterToBox(letter) {
