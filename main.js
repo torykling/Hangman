@@ -3,6 +3,8 @@ const main = document.querySelector("main")
 const box = document.querySelector(".box")
 const hangman = document.querySelector(".hangman")
 const img = document.querySelector("img")
+const winMsg = document.querySelector(".winning")
+const loseMsg = document.querySelector(".losing")
 
 class HiddenWord {
 	constructor(word) {
@@ -49,8 +51,9 @@ class Game {
 		if (letterAppearanceCount === 0) {
 			this.hangman.buildOn()
 		}
-		if (this.hangman.size > 9) {
-			main.appendChild(document.createElement("p"))
+		if (this.hangman.size > 10) {
+			loseMsg.classList.remove("hidden")
+			img.classList.add("hideImg")
 		}
 	}
 	addLetterToBox(letter) {
@@ -68,7 +71,7 @@ class Game {
 		}
 		console.log(blankCount)
 		if (blankCount === 0) {
-			alert("yay!")
+			winMsg.classList.remove("hidden")
 		}
 	}
 }
@@ -95,14 +98,23 @@ for (let i = 0; i < alphaArray.length; i++) {
 	})	
 }
 
+
 // fetch request for api (OPTIONAL NEXT STEP)
-// const url = ""
-// fetch (url) {
-// 	.then(res => res.json())
-// 	.then(res => {
-// 		console.log("success", res)
-// 	})
-// 	.catch(err => {
-// 		console.log("uh oh", err)
-// 	})
-// }
+	// api key 880603e3154c1979d3f50bcfda4cea9b
+	// application id 	e344023d
+fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+		"x-rapidapi-key": "d75413ccb8mshebbd7456372ec1cp10a3c6jsn3604564d1538"
+	}
+})
+	.then(res => res.json())
+	.then(res => {
+		console.log("success", res)
+	})
+	.catch(err => {
+		console.log("uh oh", err)
+	})
+
+	

@@ -6,6 +6,13 @@ h1 {
 	width: 80%;
 	text-align: center;
 	margin: 0 auto;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 50px;
+}
+h2 {
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
 }
 
 div {
@@ -25,7 +32,9 @@ main {
 .hidden {
 	font-size: 0;
 }
-
+.hideImg {
+	display: none;
+}
 .box {
 	width: 80%;
 	height: 100px;
