@@ -24,12 +24,11 @@ class Hangman {
 		this.size = 0
 	}
 	buildOn() {
-		this.size += 1
+		this.size ++
 	}
 }
 class Game {
 	constructor(word) {
-		this.score = []
 		this.word = new HiddenWord(word)
 		this.word.createLetterDivs()
 		this.word.addLetterContent()
@@ -37,29 +36,52 @@ class Game {
 	}
 	checkLetter(letter) {
 		let hiddenLetters = document.querySelectorAll("div")
-		let count = 0
+		let letterAppearanceCount = 0
+		let blankCount = this.word.array.length
 		for(let i = 0; i < hiddenLetters.length; i ++) {
 			if(letter === hiddenLetters[i].innerText) {
 				hiddenLetters[i].classList.remove("hidden")
-				count ++
+				letterAppearanceCount ++
+				blankCount --
 			}
+		}
+		if (letterAppearanceCount === 0) {
+			this.hangman.buildOn()
+		}
+		if (blankCount === 0) {
+			alert("Yay!")
 		}	
+		if (this.hangman.size > 10) {
+			alert("Oh no!")
+		}
 	}
 	addLetterToBox(letter) {
 		box.innerText += letter	
 	}
+	
 	play(letter) {
 		this.checkLetter(letter)
 		this.addLetterToBox(letter)
-	}
-	gameOver() {
-		if (this.hangman.size > 10) {
-			console.log("Oh no!")
-		}
 	}
 }
 
 const game = new Game("potatoes")
 console.log(game.word.array)
+game.play("p")
 game.play("o")
+game.play("t")
+game.play("a")
+game.play("t")
+game.play("o")
+game.play("e")
+game.play("z")
+game.play("q")
+game.play("d")
+game.play("f")
+game.play("g")
+game.play("u")
+game.play("n")
+game.play("m")
+game.play("l")
+game.play("v")
 
