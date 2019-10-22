@@ -14,7 +14,7 @@ class HiddenWord {
 		let hiddenLetters = document.querySelectorAll("p")
 		for (let i = 0; i < this.array.length; i ++) {
 			hiddenLetters[i].innerText = this.array[i]
-			// hiddenLetters[i].classList.add("hidden")
+			hiddenLetters[i].classList.add("hidden")
 		}
 	}	
 }
@@ -26,11 +26,12 @@ class Guess {
 class Game {
 	constructor(word) {
 		this.score = []
-		this.goalWord = new HiddenWord(word)
-		this.goalWord.createLetterDivs()
-		this.goalWord.addLetterContent()
+		this.word = new HiddenWord(word)
+		this.word.createLetterDivs()
+		this.word.addLetterContent()
 	}
 	checkLetters(letters) {
+		let hiddenLetters = document.querySelectorAll("p")
 		letters.forEach(letter => {
 			for(let i = 0; i < hiddenLetters.length; i ++) {
 				if(letter === hiddenLetters[i].innerText) {
@@ -42,9 +43,8 @@ class Game {
 }
 
 const game = new Game("potatoes")
-console.log(game.goalWord.array)
-
-
-
+let guess = new Guess("bansty").array
+console.log(game.word.array)
+game.checkLetters(guess)
 
 
