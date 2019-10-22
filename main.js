@@ -19,22 +19,12 @@ class HiddenWord {
 		}
 	}	
 }
-class Guess {
-	constructor(string) {
-		this.array = string.split("")
-	}
-	addLettersToBox() {
-		for(let i = 0; i < this.array.length; i++) {
-			box.innerText += this.array[i]
-		}
-	}
-}
 class Hangman {
 	constructor() {
-		this.man = 0
+		this.size = 0
 	}
 	buildOn() {
-		this.man += 1
+		this.size += 1
 	}
 }
 class Game {
@@ -45,24 +35,31 @@ class Game {
 		this.word.addLetterContent()
 		this.hangman = new Hangman 
 	}
-	checkLetters(letters) {
+	checkLetter(letter) {
 		let hiddenLetters = document.querySelectorAll("div")
-		letters.forEach(letter => {
-			for(let i = 0; i < hiddenLetters.length; i ++) {
-				if(letter === hiddenLetters[i].innerText) {
-					hiddenLetters[i].classList.remove("hidden")
-				} 
+		let count = 0
+		for(let i = 0; i < hiddenLetters.length; i ++) {
+			if(letter === hiddenLetters[i].innerText) {
+				hiddenLetters[i].classList.remove("hidden")
+				count ++
 			}
-		})
+		}	
 	}
-	play(str) {
-		let guess = new Guess(str)
-		this.checkLetters(guess.array)
-		guess.addLettersToBox()
+	addLetterToBox(letter) {
+		box.innerText += letter	
+	}
+	play(letter) {
+		this.checkLetter(letter)
+		this.addLetterToBox(letter)
+	}
+	gameOver() {
+		if (this.hangman.size > 10) {
+			console.log("Oh no!")
+		}
 	}
 }
 
 const game = new Game("potatoes")
 console.log(game.word.array)
-game.play("oz")
+game.play("o")
 
