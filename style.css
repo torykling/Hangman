@@ -5,3 +5,13 @@ body {
 .hidden {
 	display: none;
 }
+.box {
+	width: 300px;
+	height: 300px;
+	border: 2px solid black;
+}
+p {
+	display: inline-block;
+	margin-left: 2px
+	border-bottom: 1px solid black;
+}
