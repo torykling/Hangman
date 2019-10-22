@@ -1,5 +1,8 @@
 body {
+	box-sizing: border-box;
 	background-color: pink;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 30px;
 }
 
 h1 {
@@ -12,41 +15,88 @@ h1 {
 h2 {
 	width: 50%;
 	text-align: center;
-	margin: 0 auto;
+	margin: 0px auto;
+	font-family: 'Poiret One', cursive;
+	font-size: 40px;
 }
 
 div {
-	width: 10px;
-	font-size: 30px;
+	width: 30px;
+	font-size: 35px;
 	display: inline-block;
 	margin-left: 8px;
 	border-bottom: 1px solid black;
 }
 main {
-	width: 50%;
+	width: 90%;
 	margin: 0 auto;
 	text-align: center;
 	padding: 0;
-}
 
+}
+button {
+	width: 40px;
+	height: 40px;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 20px;
+	margin: 3px;
+	border-radius: 15px;
+	border: 2px solid gray;
+}
+button:hover, #random:hover, #enter:hover {
+	background-color: lightblue;
+}
+input {
+	width: 90%;
+	margin: 0 auto;
+}
 .hidden {
 	font-size: 0;
 }
 .hideImg {
 	display: none;
 }
+.space {
+	margin: 60px auto;
+}
 .box {
 	width: 80%;
-	height: 100px;
+	height: 90px;
 	border: 2px solid black;
 	margin: 0 auto;
 }
-
 .flower {
-	width: 80%;
+	width: 70%;
 	margin-bottom: 0;
 }
 .keyboard {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 }
+.randomAndEnter {
+	width: 20%;
+	margin: auto 20px auto 10px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 20%;
+	left: 65%;
+}
+#random, #enter {
+	width: 200px;
+	height: 40px;
+	font-family: 'Poiret One', cursive;
+	margin: 10px 0;
+	padding: 10px;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	border: 2px solid grey;
+}
+.container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+

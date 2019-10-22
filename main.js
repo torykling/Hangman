@@ -1,3 +1,7 @@
+// get random mystery word from array
+randomArray = ["bananas", "shoes", "biscuits", "television", "lugubrious", "shimmer"]
+let randomItem = randomArray[Math.floor(Math.random()*randomArray.length)];
+
 // switching to oop
 const main = document.querySelector("main")
 const box = document.querySelector(".box")
@@ -5,6 +9,7 @@ const hangman = document.querySelector(".hangman")
 const img = document.querySelector("img")
 const winMsg = document.querySelector(".winning")
 const loseMsg = document.querySelector(".losing")
+const form = document.querySelector("form")
 
 class HiddenWord {
 	constructor(word) {
@@ -53,11 +58,12 @@ class Game {
 		}
 		if (this.hangman.size > 10) {
 			loseMsg.classList.remove("hidden")
+			loseMsg.classList.add("space")
 			img.classList.add("hideImg")
 		}
 	}
 	addLetterToBox(letter) {
-		box.innerText += letter	
+		box.innerText += letter 	
 	}
 	play(letter) {
 		this.checkLetter(letter)
@@ -72,14 +78,14 @@ class Game {
 		console.log(blankCount)
 		if (blankCount === 0) {
 			winMsg.classList.remove("hidden")
+			winMsg.classList.add("space")
 		}
 	}
 }
 
-const string = "plantains"
-const game = new Game(string)
+const game = new Game(randomItem)
 console.log(game.word.array)
-game.play("p")
+// game.play("p")
 
 // building a keyboard
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -92,29 +98,35 @@ for (let i = 0; i < alphaArray.length; i++) {
 	keys[i].classList.add(alphaArray[i])
 	keys[i].addEventListener("click", function(e) {
 		e.preventDefault()
-		keys[i].style.backgroundColor = "blue"
+		keys[i].style.backgroundColor = "#056053"
 		game.play(keys[i].innerText)
 		e.target.removeEventListener(e.type, arguments.callee)
 	})	
 }
-
+// working to add typing feature
+// form.addEventListener("keydown", function(e) {
+// 	e.preventDefault()
+// 	keys[i].style.backgroundColor = "#056053"
+// 	game.play(keys[i].innerText)
+// 	e.target.removeEventListener(e.type, arguments.callee)
+// })
 
 // fetch request for api (OPTIONAL NEXT STEP)
 	// api key 880603e3154c1979d3f50bcfda4cea9b
 	// application id 	e344023d
-fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-		"x-rapidapi-key": "d75413ccb8mshebbd7456372ec1cp10a3c6jsn3604564d1538"
-	}
-})
-	.then(res => res.json())
-	.then(res => {
-		console.log("success", res)
-	})
-	.catch(err => {
-		console.log("uh oh", err)
-	})
+// fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+// 		"x-rapidapi-key": "d75413ccb8mshebbd7456372ec1cp10a3c6jsn3604564d1538"
+// 	}
+// })
+// 	.then(res => res.json())
+// 	.then(res => {
+// 		console.log("success", res)
+// 	})
+// 	.catch(err => {
+// 		console.log("uh oh", err)
+// 	})
 
 	
