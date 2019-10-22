@@ -2,8 +2,22 @@
 const main = document.querySelector("main")
 const box = document.querySelector(".box")
 
-
-
+// building a keyboard
+const alphabet = "abcdefghijklmnopqrstuvwxyz"
+const alphaArray = alphabet.split("")
+const keyboard = document.querySelector(".keyboard")
+for (let i = 0; i < alphaArray.length; i++) {
+	keyboard.appendChild(document.createElement("button"))
+	let keys = document.querySelectorAll("button")
+	keys[i].innerText = alphaArray[i]
+	keys[i].classList.add(alphaArray[i])
+	keys[i].addEventListener("click", function(e) {
+		e.preventDefault()
+		keys[i].style.backgroundColor = "blue"
+		game.play(keys[i].classList.value)
+		e.target.removeEventListener(e.type, arguments.callee)
+	})	
+}
 
 class HiddenWord {
 	constructor(word) {
@@ -76,20 +90,20 @@ class Game {
 const game = new Game("potatoes")
 console.log(game.word.array)
 game.play("p")
-game.play("o")
-game.play("t")
-game.play("a")
-game.play("t")
-game.play("o")
-game.play("e")
-game.play("z")
-game.play("q")
-game.play("d")
-game.play("f")
-game.play("g")
-game.play("u")
-game.play("n")
-game.play("m")
-game.play("l")
-game.play("v")
+// game.play("o")
+// game.play("t")
+// game.play("a")
+// game.play("t")
+// game.play("o")
+// game.play("e")
+// game.play("z")
+// game.play("q")
+// game.play("d")
+// game.play("f")
+// game.play("g")
+// game.play("u")
+// game.play("n")
+// game.play("m")
+// game.play("l")
+// game.play("v")
 
