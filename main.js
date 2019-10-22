@@ -2,6 +2,9 @@
 const main = document.querySelector("main")
 const box = document.querySelector(".box")
 
+
+
+
 class HiddenWord {
 	constructor(word) {
 		this.array = word.split("")
@@ -32,25 +35,20 @@ class Game {
 		this.word = new HiddenWord(word)
 		this.word.createLetterDivs()
 		this.word.addLetterContent()
-		this.hangman = new Hangman 
+		this.hangman = new Hangman
 	}
 	checkLetter(letter) {
 		let hiddenLetters = document.querySelectorAll("div")
 		let letterAppearanceCount = 0
-		let blankCount = this.word.array.length
 		for(let i = 0; i < hiddenLetters.length; i ++) {
 			if(letter === hiddenLetters[i].innerText) {
 				hiddenLetters[i].classList.remove("hidden")
 				letterAppearanceCount ++
-				blankCount --
-			}
+			} 	
 		}
 		if (letterAppearanceCount === 0) {
 			this.hangman.buildOn()
 		}
-		if (blankCount === 0) {
-			alert("Yay!")
-		}	
 		if (this.hangman.size > 10) {
 			alert("Oh no!")
 		}
@@ -58,10 +56,20 @@ class Game {
 	addLetterToBox(letter) {
 		box.innerText += letter	
 	}
-	
 	play(letter) {
 		this.checkLetter(letter)
 		this.addLetterToBox(letter)
+		let hiddenLetters = document.querySelectorAll("div")
+		let blankCount = this.word.array.length
+		for (let i = 0; i < hiddenLetters.length; i++) {
+			if (hiddenLetters[i].classList != "hidden") {
+				blankCount --
+			}
+		}
+		console.log(blankCount)
+		if (blankCount === 0) {
+			alert("yay!")
+		}
 	}
 }
 
