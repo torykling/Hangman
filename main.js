@@ -16,7 +16,6 @@ class HiddenWord {
 		for (let i = 0; i < this.array.length; i ++) {
 			hiddenLetters[i].innerText = this.array[i]
 			hiddenLetters[i].classList.add("hidden")
-			// hiddenLetters[i].classList.add("letters")
 		}
 	}	
 }
@@ -56,12 +55,14 @@ class Game {
 			}
 		})
 	}
+	play(str) {
+		let guess = new Guess(str)
+		this.checkLetters(guess.array)
+		guess.addLettersToBox()
+	}
 }
 
 const game = new Game("potatoes")
-let guess = new Guess("bansty")
 console.log(game.word.array)
-game.checkLetters(guess.array)
-guess.addLettersToBox()
-
+game.play("oz")
 
