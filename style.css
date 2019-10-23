@@ -1,8 +1,11 @@
+html {
+	font-size: 62.5%;
+}
 body {
 	box-sizing: border-box;
 	background-color: pink;
 	font-family: 'Abril Fatface', cursive;
-	font-size: 30px;
+	font-size: 3rem;
 }
 h1, h2, h6, main, .keyboard {
 	margin: 0 auto;
@@ -11,21 +14,21 @@ h1, h2, h6, main, .keyboard {
 h1 {
 	width: 80%;
 	font-family: 'Abril Fatface', cursive;
-	font-size: 50px;
+	font-size: 5rem;
 }
 h2 {
 	width: 50%;
 	font-family: 'Poiret One', cursive;
-	font-size: 40px;
+	font-size: 4rem;
 }
 h6 {
 	width: 50%;
 	font-family: 'Poiret One', cursive;
-	font-size: 20px;
+	font-size: 2rem;
 }
 div {
-	width: 30px;
-	font-size: 35px;
+	width: 3rem;
+	font-size: 3.5rem;
 	display: inline-block;
 	margin-left: 8px;
 }
@@ -35,12 +38,12 @@ main {
 	margin: 0 auto;
 }
 button {
-	width: 40px;
-	height: 40px;
+	width: 4rem;
+	height: 4rem;
 	font-family: 'Abril Fatface', cursive;
-	font-size: 20px;
+	font-size: 2rem;
 	margin: 3px;
-	border-radius: 15px;
+	border-radius: 1.5rem;
 	border: 2px solid gray;
 }
 button:hover, #reset:hover, #enter:hover {
@@ -63,37 +66,36 @@ input:focus {
 	display: none;
 }
 .box {
-	width: 80%;
-	height: 90px;
+	width: 30rem;
+	height: 9rem;
 	border: 2px solid black;
 	margin: 0 auto;
+	display: none;
 }
 .flower {
 	width: 60%;
 	margin-bottom: 0;
 }
 .keyboard {
-	width: 100%;
+	width: 80%;
 }
 .resetAndEnter {
 	width: 20%;
-	margin: auto 20px auto 10px;
+	margin: auto 2rem auto 1rem;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	position: absolute;
-	top: 20%;
-	left: 65%;
+
 }
 #reset, #enter {
-	width: 200px;
-	height: 40px;
+	width: 20rem;
+	height: 4rem;
 	font-family: 'Poiret One', cursive;
-	margin: 10px 0;
-	padding: 10px;
-	border-radius: 10px;
+	margin: 1rem 0;
+	padding: 1rem;
+	border-radius: 1rem;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 2rem;
 	border: 2px solid grey;
 }
 .container {

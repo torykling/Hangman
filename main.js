@@ -34,6 +34,7 @@ function buildLines(word) {
 		}
 			
 	}
+	loseMsg.innerText = `You Lose! The mystery message was ${word}.`
 }
 // This function builds the keyboard
 function buildKeyboard() {
@@ -77,7 +78,7 @@ function checkLetter(letter) {
 		} 
 		if (errCount > 10) {
 			loseMsg.classList.remove("hiddenFont")
-			loseMsg.style.marginTop = "150px"
+			loseMsg.style.marginTop = "8rem"
 			img.classList.add("hidden")
 			img.setAttribute("src", "#")
 			keyboard.innerHTML = ""
