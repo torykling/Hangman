@@ -29,7 +29,7 @@ function buildLines(word) {
 	for (let i = 0; i < wordArray.length; i ++) {
 		hiddenDivs[i].innerText = wordArray[i]
 		if (hiddenDivs[i].innerText) {
-			hiddenDivs[i].classList.add("hidden")
+			hiddenDivs[i].classList.add("hiddenFont")
 			hiddenDivs[i].style.borderBottom = "2px solid black"
 		}
 			
@@ -68,7 +68,7 @@ function checkLetter(letter) {
 		let letterAppearanceCount = 0
 		for(let i = 0; i < hiddenLetters.length; i ++) {
 			if(letter === hiddenLetters[i].innerText) {
-				hiddenLetters[i].classList.remove("hidden")
+				hiddenLetters[i].classList.remove("hiddenFont")
 				letterAppearanceCount ++
 			} 	
 		}
@@ -76,9 +76,9 @@ function checkLetter(letter) {
 			buildError()
 		} 
 		if (errCount > 10) {
-			loseMsg.classList.remove("hidden")
+			loseMsg.classList.remove("hiddenFont")
 			loseMsg.style.marginTop = "150px"
-			img.classList.add("hideImg")
+			img.classList.add("hidden")
 			img.setAttribute("src", "#")
 			keyboard.innerHTML = ""
 		}
@@ -94,13 +94,13 @@ function play(letter) {
 	let hiddenDivs = document.querySelectorAll("div")
 	let blankCount = hiddenDivs.length
 	for (let i = 0; i < hiddenDivs.length; i++) {
-		if (hiddenDivs[i].classList != "hidden") {
+		if (hiddenDivs[i].classList != "hiddenFont") {
 			blankCount --
 		}
 	}
 	console.log(blankCount)
 	if(blankCount === 0) {
-		winMsg.classList.remove("hidden")
+		winMsg.classList.remove("hiddenFont")
 		keyboard.innerHTML = ""
 	}
 }
@@ -111,14 +111,15 @@ startGame(randomWord)
 // This is the event listener for the reset button. 
 resetButton.addEventListener("click", function(e) {
 	e.preventDefault()
+	userInput.classList.add("hidden")
 	box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winMsg.classList.add("hidden")
-	loseMsg.classList.add("hidden")
+	winMsg.classList.add("hiddenFont")
+	loseMsg.classList.add("hiddenFont")
 	loseMsg.style.marginTop = "0px"
 	errCount = 0
-	img.classList.remove("hideImg")
+	img.classList.remove("hidden")
 	img.setAttribute("src", "img/flowerError0.png")
 	let newRandom = randomArray[Math.floor(Math.random()*randomArray.length)]
 	startGame(newRandom)
@@ -127,15 +128,15 @@ resetButton.addEventListener("click", function(e) {
 // This is the event listener for the enter your own form.
 form.addEventListener("submit", function(e) {
 	e.preventDefault()
-	userInput.classList.toggle("hideImg")
+	userInput.classList.toggle("hidden")
 	box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winMsg.classList.add("hidden")
-	loseMsg.classList.add("hidden")
+	winMsg.classList.add("hiddenFont")
+	loseMsg.classList.add("hiddenFont")
 	loseMsg.style.marginTop = "0px"
 	errCount = 0
-	img.classList.remove("hideImg")
+	img.classList.remove("hidden")
 	img.setAttribute("src", "img/flowerError0.png")
 	let mysteryWord = userInput.value
 	startGame(mysteryWord)

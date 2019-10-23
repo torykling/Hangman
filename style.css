@@ -46,14 +46,20 @@ button {
 button:hover, #reset:hover, #enter:hover {
 	background-color: lightblue;
 }
+button:focus {
+	outline:0;
+}
 input {
 	width: 90%;
 	margin: 0 auto;
 }
-.hidden {
+input:focus {
+	outline: 0;
+}
+.hiddenFont {
 	font-size: 0;
 }
-.hideImg {
+.hidden {
 	display: none;
 }
 .box {
