@@ -43,7 +43,7 @@ button {
 	border-radius: 15px;
 	border: 2px solid gray;
 }
-button:hover, #random:hover, #enter:hover {
+button:hover, #reset:hover, #enter:hover {
 	background-color: lightblue;
 }
 input {
@@ -72,7 +72,7 @@ input {
 .keyboard {
 	width: 100%;
 }
-.randomAndEnter {
+.resetAndEnter {
 	width: 20%;
 	margin: auto 20px auto 10px;
 	text-align: center;
@@ -82,7 +82,7 @@ input {
 	top: 20%;
 	left: 65%;
 }
-#random, #enter {
+#reset {
 	width: 200px;
 	height: 40px;
 	font-family: 'Poiret One', cursive;

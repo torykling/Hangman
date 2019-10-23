@@ -1,9 +1,10 @@
 // get random mystery word from array
 randomArray = ["bananas", "shoes", "biscuits", "television", "lugubrious", "shimmer", "apples"]
-let randomItem = randomArray[Math.floor(Math.random()*randomArray.length)];
-const randomButton = document.querySelector("#random")
-const enterYourOwnButton = document.querySelector("#enter")
-// switching to oop
+let randomWord = randomArray[Math.floor(Math.random()*randomArray.length)];
+const resetButton = document.querySelector("#reset")
+// const enterYourOwnButton = document.querySelector("#enter")
+
+// Switch back 
 const main = document.querySelector("main")
 const box = document.querySelector(".box")
 const hangman = document.querySelector(".hangman")
@@ -12,40 +13,50 @@ const winMsg = document.querySelector(".winning")
 const loseMsg = document.querySelector(".losing")
 const form = document.querySelector("form")
 
-class HiddenWord {
-	constructor(word) {
-		this.array = word.split("")
+const alphabet = "abcdefghijklmnopqrstuvwxyz"
+const alphaArray = alphabet.split("")
+const keyboard = document.querySelector(".keyboard")
+
+// let word = randomWord
+// const wordArray = word.split("")
+let errCount = 0
+
+function buildLines(word) {
+	let wordArray = word.split("")
+	for (let i = 0; i < wordArray.length; i ++) {
+		main.appendChild(document.createElement("div"))
 	}
-	createLetterDivs() {
-		for (let i = 0; i < this.array.length; i ++) {
-			main.appendChild(document.createElement("div"))
-		}
-	}
-	addLetterContent() {
-		let hiddenLetters = document.querySelectorAll("div")
-		for (let i = 0; i < this.array.length; i ++) {
-			hiddenLetters[i].innerText = this.array[i]
-			hiddenLetters[i].classList.add("hidden")
-		}
-	}	
-}
-class Hangman {
-	constructor() {
-		this.size = 0
-	}
-	buildOn() {
-		this.size ++
-		img.setAttribute("src", `img/flowerError${this.size}.png`)
+	let hiddenDivs = document.querySelectorAll("div")
+		for (let i = 0; i < wordArray.length; i ++) {
+			hiddenDivs[i].innerText = wordArray[i]
+			hiddenDivs[i].classList.add("hidden")
 		}
 }
-class Game {
-	constructor(word) {
-		this.word = new HiddenWord(word)
-		this.word.createLetterDivs()
-		this.word.addLetterContent()
-		this.hangman = new Hangman
+function buildKeyboard() {
+	for (let i = 0; i < alphaArray.length; i++) {
+	keyboard.appendChild(document.createElement("button"))
+	let keys = document.querySelectorAll("button")
+	keys[i].innerText = alphaArray[i]
+	keys[i].classList.add(alphaArray[i])
+	keys[i].addEventListener("click", function(e) {
+		e.preventDefault()
+		keys[i].style.backgroundColor = "#056053"
+		play(keys[i].innerText)
+		e.target.removeEventListener(e.type, arguments.callee)
+		})	
 	}
-	checkLetter(letter) {
+}
+function buildError() {
+	errCount ++
+	img.setAttribute("src", `img/flowerError${errCount}.png`)
+	
+}
+function startGame(word) {
+	console.log(word)
+	buildLines(word)
+	buildKeyboard()
+}
+function checkLetter(letter) {
 		let hiddenLetters = document.querySelectorAll("div")
 		let letterAppearanceCount = 0
 		for(let i = 0; i < hiddenLetters.length; i ++) {
@@ -55,61 +66,44 @@ class Game {
 			} 	
 		}
 		if (letterAppearanceCount === 0) {
-			this.hangman.buildOn()
-		}
-		if (this.hangman.size > 10) {
+			buildError()
+		} 
+		if (errCount > 10) {
 			loseMsg.classList.remove("hidden")
 			loseMsg.classList.add("space")
 			img.classList.add("hideImg")
+			img.setAttribute("src", "#")
 		}
-	}
-	addLetterToBox(letter) {
-		box.innerText += letter 	
-	}
-	play(letter) {
-		this.checkLetter(letter)
-		this.addLetterToBox(letter)
-		let hiddenLetters = document.querySelectorAll("div")
-		let blankCount = this.word.array.length
-		for (let i = 0; i < hiddenLetters.length; i++) {
-			if (hiddenLetters[i].classList != "hidden") {
-				blankCount --
-			}
-		}
-		console.log(blankCount)
-		if (blankCount === 0) {
-			winMsg.classList.remove("hidden")
-			winMsg.classList.add("space")
-		}
-	}
+}
+function addLetterToBox(letter) {
+	box.innerText += letter
 }
 
-let game = new Game(randomItem)
-console.log(game.word.array)
-
-
-// building a keyboard
-const alphabet = "abcdefghijklmnopqrstuvwxyz"
-const alphaArray = alphabet.split("")
-const keyboard = document.querySelector(".keyboard")
-for (let i = 0; i < alphaArray.length; i++) {
-	keyboard.appendChild(document.createElement("button"))
-	let keys = document.querySelectorAll("button")
-	keys[i].innerText = alphaArray[i]
-	keys[i].classList.add(alphaArray[i])
-	keys[i].addEventListener("click", function(e) {
-		e.preventDefault()
-		keys[i].style.backgroundColor = "#056053"
-		game.play(keys[i].innerText)
-		e.target.removeEventListener(e.type, arguments.callee)
-	})	
+function play(letter) {
+	checkLetter(letter)
+	addLetterToBox(letter)
+	let hiddenDivs = document.querySelectorAll("div")
+	let blankCount = hiddenDivs.length
+	for (let i = 0; i < hiddenDivs.length; i++) {
+		if (hiddenDivs[i].classList != "hidden") {
+			blankCount --
+		}
+	}
+	console.log(blankCount)
+	if(blankCount === 0) {
+		winMsg.classList.remove("hidden")
+		winMsg.classList.add("space")
+	}
 }
-
+startGame(randomWord)
 // event listeners for buttons
-// randomButton.addEventListener("click", function(e) {
-// 	e.preventDefault()
-
-// })
+resetButton.addEventListener("click", function(e) {
+	e.preventDefault()
+	box.innerHTML=""
+	main.innerHTML=""
+	keyboard.innerHTML=""
+	startGame(randomWord)
+})
 // enterYourOwnButton.addEventListener("click", function(e) {
 // 	e.preventDefault()
 // 	let mysteryWord = prompt("Enter Your Own Word!")
@@ -126,7 +120,6 @@ for (let i = 0; i < alphaArray.length; i++) {
 // })
 
 
-
 // fetch request for api
 // fetch("https://api.datamuse.com/words?ml=animals&max=1000") 
 // 	.then(res => res.json()) 
@@ -141,6 +134,3 @@ for (let i = 0; i < alphaArray.length; i++) {
 // 		console.log("oops", err)
 // 	})
 // let game = new Game(randomWord)
-
-
-	
