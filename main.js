@@ -3,6 +3,7 @@ randomArray = ["abacus","abate","abdication","aberration","abet","abeyance","abh
 let randomWord = randomArray[Math.floor(Math.random()*randomArray.length)]
 const resetButton = document.querySelector("#reset")
 const enterYourOwnButton = document.querySelector("#enter")
+const userInput = document.querySelector(".userInput")
 
 const main = document.querySelector("main")
 const box = document.querySelector(".box")
@@ -123,9 +124,10 @@ resetButton.addEventListener("click", function(e) {
 	startGame(newRandom)
 })
 
-// This is the event listsener for the enter your own button. Why does it time out?
-enterYourOwnButton.addEventListener("click", function(e) {
+// This is the event listener for the enter your own form.
+form.addEventListener("submit", function(e) {
 	e.preventDefault()
+	userInput.classList.toggle("hideImg")
 	box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
@@ -135,8 +137,9 @@ enterYourOwnButton.addEventListener("click", function(e) {
 	errCount = 0
 	img.classList.remove("hideImg")
 	img.setAttribute("src", "img/flowerError0.png")
-	let mysteryWord = prompt("Enter Your Own Word!")
+	let mysteryWord = userInput.value
 	startGame(mysteryWord)
+	userInput.value = ""
 })
 
 // working to add typing feature
