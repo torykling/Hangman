@@ -20,14 +20,19 @@ let errCount = 0
 
 function buildLines(word) {
 	let wordArray = word.split("")
+	console.log(wordArray)
 	for (let i = 0; i < wordArray.length; i ++) {
 		main.appendChild(document.createElement("div"))
 	}
 	let hiddenDivs = document.querySelectorAll("div")
-		for (let i = 0; i < wordArray.length; i ++) {
-			hiddenDivs[i].innerText = wordArray[i]
+	for (let i = 0; i < wordArray.length; i ++) {
+		hiddenDivs[i].innerText = wordArray[i]
+		if (hiddenDivs[i].innerText) {
 			hiddenDivs[i].classList.add("hidden")
+			hiddenDivs[i].style.borderBottom = "2px solid black"
 		}
+			
+	}
 }
 function buildKeyboard() {
 	for (let i = 0; i < alphaArray.length; i++) {
