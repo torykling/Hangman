@@ -7,7 +7,6 @@ const userInput = document.querySelector(".userInput")
 
 const main = document.querySelector("main")
 // const box = document.querySelector(".box")
-const hangman = document.querySelector(".hangman")
 const img = document.querySelector("img")
 const winMsg = document.querySelector(".winning")
 const loseMsg = document.querySelector(".losing")
@@ -40,17 +39,31 @@ function buildLines(word) {
 // This function builds the keyboard
 function buildKeyboard() {
 	for (let i = 0; i < alphaArray.length; i++) {
-	keyboard.appendChild(document.createElement("button"))
-	let keys = document.querySelectorAll("button")
-	keys[i].innerText = alphaArray[i]
-	keys[i].classList.add(alphaArray[i])
-	keys[i].addEventListener("click", function(e) {
-		e.preventDefault()
-		keys[i].style.backgroundColor = "#056053"
-		play(keys[i].innerText)
-		e.target.removeEventListener(e.type, arguments.callee)
-		})	
+		keyboard.appendChild(document.createElement("button"))
+		let keys = document.querySelectorAll("button")
+		keys[i].innerText = alphaArray[i]
+		keys[i].classList.add(alphaArray[i])
+		keys[i].setAttribute("id", i+65)
+		keys[i].addEventListener("click", function(e) {
+			e.preventDefault()
+			keys[i].style.backgroundColor = "#056053"
+			play(keys[i].innerText)
+			e.target.removeEventListener(e.type, arguments.callee)
+		})
+
 	}
+	// keydown feature
+	let keys = document.querySelectorAll("button")
+	document.addEventListener("keydown", function(e) {
+		for(let i = 0; i <keys.length; i++) {
+			let button = document.getElementById(`${i+65}`)
+			if(button) {
+				if (e.which == `${i+65}`) {
+					button.click()
+				}
+			}	
+		}
+	})
 }
 // This function adds one to the error count and updates the image to the corresponding error count
 function buildError() {
@@ -78,7 +91,7 @@ function checkLetter(letter) {
 			buildError()
 		} 
 		if (errCount > 10) {
-			loseMsg.classList.remove("hiddenFont")
+			loseMsg.classList.remove("hidden")
 			loseMsg.style.marginTop = "8rem"
 			img.classList.add("hidden")
 			img.setAttribute("src", "#")
@@ -101,9 +114,8 @@ function play(letter) {
 			blankCount --
 		}
 	}
-	console.log(blankCount)
 	if(blankCount === 0) {
-		winMsg.classList.remove("hiddenFont")
+		winMsg.classList.remove("hidden")
 		keyboard.innerHTML = ""
 	}
 }
@@ -118,8 +130,8 @@ resetButton.addEventListener("click", function(e) {
 	// box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winMsg.classList.add("hiddenFont")
-	loseMsg.classList.add("hiddenFont")
+	winMsg.classList.add("hidden")
+	loseMsg.classList.add("hidden")
 	loseMsg.style.marginTop = "0px"
 	errCount = 0
 	img.classList.remove("hidden")
@@ -135,8 +147,8 @@ form.addEventListener("submit", function(e) {
 	// box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winMsg.classList.add("hiddenFont")
-	loseMsg.classList.add("hiddenFont")
+	winMsg.classList.add("hidden")
+	loseMsg.classList.add("hidden")
 	loseMsg.style.marginTop = "0px"
 	errCount = 0
 	img.classList.remove("hidden")
@@ -145,12 +157,4 @@ form.addEventListener("submit", function(e) {
 	startGame(mysteryWord)
 	userInput.value = ""
 })
-
-// working to add typing feature
-// form.addEventListener("keydown", function(e) {
-// 	e.preventDefault()
-// 	keys[i].style.backgroundColor = "#056053"
-// 	game.play(keys[i].innerText)
-// 	e.target.removeEventListener(e.type, arguments.callee)
-// })
 

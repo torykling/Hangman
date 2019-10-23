@@ -60,7 +60,7 @@ input:focus {
 	outline: 0;
 }
 .hiddenFont {
-	font-size: 0;
+	color: pink;
 }
 .hidden {
 	display: none;
