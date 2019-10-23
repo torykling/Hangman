@@ -1,3 +1,6 @@
+* {
+	border: red 1px solid;
+}
 html {
 	font-size: 62.5%;
 }
@@ -80,15 +83,16 @@ input:focus {
 	width: 80%;
 }
 .resetAndEnter {
-	width: 20%;
-	margin: auto 2rem auto 1rem;
+	width: 30rem;
+	margin: auto 7rem auto 0;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-
+	align-self: center;
 }
 #reset, #enter {
-	width: 20rem;
+	max-width: 100%;
+	width: 15rem;
 	height: 4rem;
 	font-family: 'Poiret One', cursive;
 	margin: 1rem 0;
@@ -97,12 +101,14 @@ input:focus {
 	font-weight: bold;
 	font-size: 2rem;
 	border: 2px solid grey;
+	align-self: center;
 }
 .container {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	margin: 0;
+	justify-content: space-around;
 }
 .reveal {
 	font-family: 'Abril Fatface', cursive;
