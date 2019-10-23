@@ -6,12 +6,13 @@ const enterYourOwnButton = document.querySelector("#enter")
 const userInput = document.querySelector(".userInput")
 
 const main = document.querySelector("main")
-const box = document.querySelector(".box")
+// const box = document.querySelector(".box")
 const hangman = document.querySelector(".hangman")
 const img = document.querySelector("img")
 const winMsg = document.querySelector(".winning")
 const loseMsg = document.querySelector(".losing")
 const form = document.querySelector("form")
+const reveal = document.querySelector(".reveal")
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
 const alphaArray = alphabet.split("")
@@ -34,7 +35,7 @@ function buildLines(word) {
 		}
 			
 	}
-	loseMsg.innerText = `You Lose! The mystery message was ${word}.`
+	reveal.innerText = `${word}`
 }
 // This function builds the keyboard
 function buildKeyboard() {
@@ -85,13 +86,14 @@ function checkLetter(letter) {
 		}
 }
 // This function adds a letter to the guessed already box.
-function addLetterToBox(letter) {
-	box.innerText += letter
-}
+// function addLetterToBox(letter) {
+// 	box.innerText += letter
+// }
+
 // This function calls the checkletter and addletter to box functions and keeps track of divs that are still hidden to see if the game has been won.
 function play(letter) {
 	checkLetter(letter)
-	addLetterToBox(letter)
+	// addLetterToBox(letter)
 	let hiddenDivs = document.querySelectorAll("div")
 	let blankCount = hiddenDivs.length
 	for (let i = 0; i < hiddenDivs.length; i++) {
@@ -113,7 +115,7 @@ startGame(randomWord)
 resetButton.addEventListener("click", function(e) {
 	e.preventDefault()
 	userInput.classList.add("hidden")
-	box.innerHTML=""
+	// box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
 	winMsg.classList.add("hiddenFont")
@@ -130,7 +132,7 @@ resetButton.addEventListener("click", function(e) {
 form.addEventListener("submit", function(e) {
 	e.preventDefault()
 	userInput.classList.toggle("hidden")
-	box.innerHTML=""
+	// box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
 	winMsg.classList.add("hiddenFont")

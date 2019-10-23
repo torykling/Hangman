@@ -65,13 +65,13 @@ input:focus {
 .hidden {
 	display: none;
 }
-.box {
+/*.box {
 	width: 30rem;
 	height: 9rem;
 	border: 2px solid black;
 	margin: 0 auto;
 	display: none;
-}
+}*/
 .flower {
 	width: 60%;
 	margin-bottom: 0;
@@ -103,5 +103,8 @@ input:focus {
 	flex-direction: row;
 	width: 100%;
 	margin: 0;
+}
+.reveal {
+	font-family: 'Abril Fatface', cursive;
 }
 
