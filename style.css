@@ -4,22 +4,25 @@ body {
 	font-family: 'Abril Fatface', cursive;
 	font-size: 30px;
 }
-
+h1, h2, h6, main, .keyboard {
+	margin: 0 auto;
+	text-align: center;
+}
 h1 {
 	width: 80%;
-	text-align: center;
-	margin: 0 auto;
 	font-family: 'Abril Fatface', cursive;
 	font-size: 50px;
 }
 h2 {
 	width: 50%;
-	text-align: center;
-	margin: 0px auto;
 	font-family: 'Poiret One', cursive;
 	font-size: 40px;
 }
-
+h6 {
+	width: 50%;
+	font-family: 'Poiret One', cursive;
+	font-size: 20px;
+}
 div {
 	width: 30px;
 	font-size: 35px;
@@ -29,10 +32,7 @@ div {
 }
 main {
 	width: 90%;
-	margin: 0 auto;
-	text-align: center;
 	padding: 0;
-
 }
 button {
 	width: 40px;
@@ -66,12 +66,11 @@ input {
 	margin: 0 auto;
 }
 .flower {
-	width: 70%;
+	width: 60%;
 	margin-bottom: 0;
 }
 .keyboard {
 	width: 100%;
-	margin: 0 auto;
 }
 .randomAndEnter {
 	width: 20%;

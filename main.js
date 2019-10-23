@@ -1,7 +1,8 @@
 // get random mystery word from array
-randomArray = ["bananas", "shoes", "biscuits", "television", "lugubrious", "shimmer"]
+randomArray = ["bananas", "shoes", "biscuits", "television", "lugubrious", "shimmer", "apples"]
 let randomItem = randomArray[Math.floor(Math.random()*randomArray.length)];
-
+const randomButton = document.querySelector("#random")
+const enterYourOwnButton = document.querySelector("#enter")
 // switching to oop
 const main = document.querySelector("main")
 const box = document.querySelector(".box")
@@ -83,9 +84,9 @@ class Game {
 	}
 }
 
-const game = new Game(randomItem)
+let game = new Game(randomItem)
 console.log(game.word.array)
-// game.play("p")
+
 
 // building a keyboard
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -103,6 +104,19 @@ for (let i = 0; i < alphaArray.length; i++) {
 		e.target.removeEventListener(e.type, arguments.callee)
 	})	
 }
+
+// event listeners for buttons
+// randomButton.addEventListener("click", function(e) {
+// 	e.preventDefault()
+
+// })
+// enterYourOwnButton.addEventListener("click", function(e) {
+// 	e.preventDefault()
+// 	let mysteryWord = prompt("Enter Your Own Word!")
+// 	game = new Game(`${mysteryWord}`)
+// })
+// this one times out -- neither seems to replace the old game
+
 // working to add typing feature
 // form.addEventListener("keydown", function(e) {
 // 	e.preventDefault()
@@ -111,22 +125,22 @@ for (let i = 0; i < alphaArray.length; i++) {
 // 	e.target.removeEventListener(e.type, arguments.callee)
 // })
 
-// fetch request for api (OPTIONAL NEXT STEP)
-	// api key 880603e3154c1979d3f50bcfda4cea9b
-	// application id 	e344023d
-// fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-// 		"x-rapidapi-key": "d75413ccb8mshebbd7456372ec1cp10a3c6jsn3604564d1538"
-// 	}
-// })
-// 	.then(res => res.json())
+
+
+// fetch request for api
+// fetch("https://api.datamuse.com/words?ml=animals&max=1000") 
+// 	.then(res => res.json()) 
 // 	.then(res => {
 // 		console.log("success", res)
+// 		let randomWord = res[Math.floor(Math.random()*res.length)].word;
+// 		console.log(randomWord)
+// 		// let game = new Game(randomWord)
+
 // 	})
 // 	.catch(err => {
-// 		console.log("uh oh", err)
+// 		console.log("oops", err)
 // 	})
+// let game = new Game(randomWord)
+
 
 	
