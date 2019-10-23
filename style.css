@@ -82,7 +82,7 @@ input {
 	top: 20%;
 	left: 65%;
 }
-#reset {
+#reset, #enter {
 	width: 200px;
 	height: 40px;
 	font-family: 'Poiret One', cursive;
