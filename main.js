@@ -6,7 +6,6 @@ const enterYourOwnButton = document.querySelector("#enter")
 const userInput = document.querySelector(".userInput")
 
 const main = document.querySelector("main")
-// const box = document.querySelector(".box")
 const img = document.querySelector("img")
 const winMsg = document.querySelector(".winning")
 const loseMsg = document.querySelector(".losing")
@@ -31,8 +30,7 @@ function buildLines(word) {
 		if (hiddenDivs[i].innerText) {
 			hiddenDivs[i].classList.add("hiddenFont")
 			hiddenDivs[i].style.borderBottom = "2px solid black"
-		}
-			
+		}		
 	}
 	reveal.innerText = `${word}`
 }
@@ -106,7 +104,6 @@ function checkLetter(letter) {
 // This function calls the checkletter and addletter to box functions and keeps track of divs that are still hidden to see if the game has been won.
 function play(letter) {
 	checkLetter(letter)
-	// addLetterToBox(letter)
 	let hiddenDivs = document.querySelectorAll("div")
 	let blankCount = hiddenDivs.length
 	for (let i = 0; i < hiddenDivs.length; i++) {
@@ -114,7 +111,8 @@ function play(letter) {
 			blankCount --
 		}
 	}
-	if(blankCount === 0) {
+	// Added userInput here to prevent winning message from appearing when user enters message.
+	if((userInput.classList=="hidden")&&(blankCount === 0)) {
 		winMsg.classList.remove("hidden")
 		keyboard.innerHTML = ""
 	}
@@ -127,7 +125,6 @@ startGame(randomWord)
 resetButton.addEventListener("click", function(e) {
 	e.preventDefault()
 	userInput.classList.add("hidden")
-	// box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
 	winMsg.classList.add("hidden")
@@ -144,7 +141,6 @@ resetButton.addEventListener("click", function(e) {
 form.addEventListener("submit", function(e) {
 	e.preventDefault()
 	userInput.classList.toggle("hidden")
-	// box.innerHTML=""
 	main.innerHTML=""
 	keyboard.innerHTML=""
 	winMsg.classList.add("hidden")
@@ -153,7 +149,7 @@ form.addEventListener("submit", function(e) {
 	errCount = 0
 	img.classList.remove("hidden")
 	img.setAttribute("src", "img/flowerError0.png")
-	let mysteryWord = userInput.value
+	let mysteryWord = userInput.value.toLowerCase()
 	startGame(mysteryWord)
 	userInput.value = ""
 })
