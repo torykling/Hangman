@@ -32,6 +32,7 @@ div {
 main {
 	width: 90%;
 	padding: 0;
+	margin: 0 auto;
 }
 button {
 	width: 40px;
@@ -54,9 +55,6 @@ input {
 }
 .hideImg {
 	display: none;
-}
-.space {
-	margin: 60px auto;
 }
 .box {
 	width: 80%;
@@ -96,5 +94,6 @@ input {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
+	margin: 0;
 }
 
