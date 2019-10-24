@@ -50,10 +50,10 @@ function buildKeyboard() {
 		})
 
 	}
-	// keydown feature
+	// Allows user to type in addition to using buttons
 	let keys = document.querySelectorAll("button")
 	document.addEventListener("keydown", function(e) {
-		for(let i = 0; i <keys.length; i++) {
+		for(let i = 0; i < keys.length; i++) {
 			let button = document.getElementById(`${i+65}`)
 			if(button) {
 				if (e.which == `${i+65}`) {
@@ -85,7 +85,7 @@ function checkLetter(letter) {
 				letterAppearanceCount ++
 			} 	
 		}
-		if (letterAppearanceCount === 0) {
+		if ((letterAppearanceCount === 0)&&(userInput.classList=="userInput hidden")) {
 			buildError()
 		} 
 		if (errCount > 10) {
@@ -96,12 +96,8 @@ function checkLetter(letter) {
 			keyboard.innerHTML = ""
 		}
 }
-// This function adds a letter to the guessed already box.
-// function addLetterToBox(letter) {
-// 	box.innerText += letter
-// }
 
-// This function calls the checkletter and addletter to box functions and keeps track of divs that are still hidden to see if the game has been won.
+// This function calls the checkletter function and keeps track of divs that are still hidden to see if the game has been won.
 function play(letter) {
 	checkLetter(letter)
 	let hiddenDivs = document.querySelectorAll("div")

@@ -70,6 +70,7 @@ input:focus {
 }
 .flower {
 	width: 60%;
+	height: auto;
 	margin-bottom: 0;
 }
 .keyboard {
