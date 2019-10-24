@@ -30,15 +30,16 @@ h6 {
 	font-size: 2rem;
 }
 div {
-	width: 3rem;
-	font-size: 3.5rem;
+	width: 2rem;
+	font-size: 2.5rem;
 	display: inline-block;
 	margin-left: 8px;
 }
 main {
-	width: 90%;
+	width: 95%;
 	padding: 0;
 	margin: 0 auto;
+	white-space: nowrap;
 }
 button {
 	width: 4rem;
@@ -84,7 +85,7 @@ input:focus {
 	flex-direction: column;
 	align-self: center;
 }
-#reset, #enter {
+#reset, #enter, #score {
 	max-width: 100%;
 	width: 15rem;
 	height: 4rem;
@@ -93,7 +94,7 @@ input:focus {
 	padding: 1rem;
 	border-radius: 1rem;
 	font-weight: bold;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	border: 2px solid grey;
 	align-self: center;
 }
@@ -115,5 +116,9 @@ input:focus {
 	.flower {
 		width: 50%;
 		height: 33%;
+	}
+	div {
+		width: 4rem;
+		font-size: 4rem;
 	}
 }

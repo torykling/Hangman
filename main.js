@@ -17,6 +17,18 @@ const alphaArray = alphabet.split("")
 const keyboard = document.querySelector(".keyboard")
 
 let errCount = 0
+const scoreButton = document.querySelector("#score")
+let score = 0
+// need a function that will split into multiple arrays so I can create minwidth by word
+function nesting(userEntry) {
+	let array1 = userEntry.split(" ")
+	let array2 = [] 
+	console.log(array1)
+	for (let i = 0; i < array1.length; i++) {
+		array2.push(array1[i].split(""))
+	}
+	console.log(array2)
+}
 // This function builds the blank spaces and hidden divs containing the mystery word letters
 function buildLines(word) {
 	let wordArray = word.split("")
@@ -110,6 +122,8 @@ function play(letter) {
 	// Added userInput here to prevent winning message from appearing when user enters message.
 	if((blankCount === 0)&&(userInput.classList=="userInput hidden")) {
 		winMsg.classList.remove("hidden")
+		score++
+		scoreButton.value = `Score: ${score}`
 		keyboard.innerHTML = ""
 	}
 }
