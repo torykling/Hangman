@@ -101,7 +101,7 @@ function checkLetter(letter) {
 		if ((letterAppearanceCount === 0)&&(userInput.classList=="userInput hidden")) {
 			buildError()
 		} 
-		if (errCount > 10) {
+		if (errCount > 8) {
 			loseMsg.classList.remove("hidden")
 			loseMsg.style.marginTop = "1rem"
 			img.classList.add("hidden")
