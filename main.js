@@ -112,7 +112,7 @@ function play(letter) {
 		}
 	}
 	// Added userInput here to prevent winning message from appearing when user enters message.
-	if((userInput.classList=="hidden")&&(blankCount === 0)) {
+	if((blankCount === 0)&&(userInput.classList=="userInput hidden")) {
 		winMsg.classList.remove("hidden")
 		keyboard.innerHTML = ""
 	}
@@ -141,6 +141,7 @@ resetButton.addEventListener("click", function(e) {
 form.addEventListener("submit", function(e) {
 	e.preventDefault()
 	userInput.classList.toggle("hidden")
+	keyboard.classList.toggle("hidden")
 	main.innerHTML=""
 	keyboard.innerHTML=""
 	winMsg.classList.add("hidden")
