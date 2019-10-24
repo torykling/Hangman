@@ -108,6 +108,9 @@ input:focus {
 .reveal {
 	font-family: 'Abril Fatface', cursive;
 }
+.userInput {
+	height: 4rem;
+}
 @media screen and (min-width: 600px) {
 	button {
 		width: 5rem;
