@@ -77,17 +77,17 @@ input:focus {
 .keyboard {
 	width: 80%;
 }
-.resetAndEnter {
+.bigButtonContainer {
 	width: 30rem;
 	margin: auto 7rem auto 0;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	align-self: center;
+	align-items: center;
 }
 #reset, #enter, #score {
 	max-width: 100%;
-	width: 15rem;
+	width: 20rem;
 	height: 4rem;
 	font-family: 'Poiret One', cursive;
 	margin: 1rem 0;
@@ -96,7 +96,7 @@ input:focus {
 	font-weight: bold;
 	font-size: 1.5rem;
 	border: 2px solid grey;
-	align-self: center;
+	align-items: center;
 }
 .container {
 	display: flex;

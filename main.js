@@ -4,6 +4,7 @@ let randomWord = randomArray[Math.floor(Math.random()*randomArray.length)]
 const resetButton = document.querySelector("#reset")
 const enterYourOwnButton = document.querySelector("#enter")
 const userInput = document.querySelector(".userInput")
+const bigButtonContainer = document.querySelector(".bigButtonContainer")
 
 const main = document.querySelector("main")
 const img = document.querySelector("img")
@@ -102,10 +103,11 @@ function checkLetter(letter) {
 		} 
 		if (errCount > 10) {
 			loseMsg.classList.remove("hidden")
-			loseMsg.style.marginTop = "8rem"
+			loseMsg.style.marginTop = "1rem"
 			img.classList.add("hidden")
 			img.setAttribute("src", "#")
 			keyboard.innerHTML = ""
+			bigButtonContainer.style.margin = "0 auto"
 		}
 }
 
