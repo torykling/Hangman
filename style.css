@@ -16,7 +16,6 @@ h1, h2, h6, main, .keyboard {
 }
 h1 {
 	width: 80%;
-	font-family: 'Abril Fatface', cursive;
 	font-size: 5rem;
 }
 h2 {
@@ -53,15 +52,12 @@ button {
 button:hover, #reset:hover, #enter:hover {
 	background-color: lightblue;
 }
-button:focus {
+button:focus, input:focus {
 	outline:0;
 }
 input {
 	width: 90%;
 	margin: 0 auto;
-}
-input:focus {
-	outline: 0;
 }
 .hiddenFont {
 	color: pink;
@@ -111,6 +107,18 @@ input:focus {
 .userInput {
 	height: 4rem;
 }
+.winning, .losing {
+	animation: pulse 3s 1;
+}
+@keyframes pulse {
+	0% {
+		color: pink;
+	}
+	100% {
+		color: black;
+	}
+}
+
 @media screen and (min-width: 600px) {
 	button {
 		width: 5rem;
@@ -123,5 +131,14 @@ input:focus {
 	div {
 		width: 4rem;
 		font-size: 4rem;
+	}
+}
+@media screen and (min-width: 800px) {
+	.bigButtonContainer {
+		margin-top: 5rem;
+	}
+	.flower {
+		width: 40%;
+		height: 26.5%;
 	}
 }

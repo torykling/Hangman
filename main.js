@@ -20,6 +20,7 @@ const keyboard = document.querySelector(".keyboard")
 let errCount = 0
 const scoreButton = document.querySelector("#score")
 let score = 0
+
 // need a function that will split into multiple arrays so I can create minwidth by word
 function nesting(userEntry) {
 	let array1 = userEntry.split(" ")
