@@ -34,7 +34,6 @@ div {
 	font-size: 2.5rem;
 	display: inline-block;
 	margin-left: 8px;
-	border-bottom: 2px solid black;
 	line-height: 7rem;
 }
 main {
@@ -70,6 +69,12 @@ input {
 	visibility: hidden;
 }
 .hidden {
+	display: none;
+}
+#hiddenLose {
+	display: none;
+}
+#hiddenWin {
 	display: none;
 }
 img {

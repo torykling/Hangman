@@ -31,7 +31,7 @@ function buildLines(word) {
 		hiddenDivs[i].innerText = wordArray[i]
 		if (hiddenDivs[i].innerText) {
 			hiddenDivs[i].classList.add("hiddenFont")
-			// hiddenDivs[i].style.borderBottom = "2px solid black"
+			hiddenDivs[i].style.borderBottom = "2px solid black"
 		}		
 	}
 	
@@ -94,7 +94,7 @@ function checkLetter(letter) {
 			buildError()
 		} 
 		if (errCount > 8) {
-			loseBox.classList.remove("hidden")
+			loseBox.setAttribute("id", "")
 			img.classList.add("invisible")
 			img.setAttribute("src", "#")
 			keyboard.innerHTML = ""
@@ -115,7 +115,7 @@ function play(letter) {
 	}
 	// Added userInput here to prevent winning message from appearing when user enters message.
 	if((blankCount === 0)&&(userInput.classList=="userInput hidden")) {
-		winBox.classList.remove("hidden")
+		winBox.setAttribute("id", "")
 		score++
 		scoreButton.value = `Score: ${score}`
 		keyboard.innerHTML = ""
@@ -132,8 +132,8 @@ randomButton.addEventListener("click", function(e) {
 	keyboard.classList.remove("hidden")
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winBox.classList.add("hidden")
-	loseBox.classList.add("hidden")
+	winBox.setAttribute("id", "hiddenWin")
+	loseBox.setAttribute("id", "hiddenLose")
 	// loseMsg.style.marginTop = "0px"
 	errCount = 0
 	img.classList.remove("invisible")
@@ -149,8 +149,8 @@ form.addEventListener("submit", function(e) {
 	keyboard.classList.toggle("hidden")
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winBox.classList.add("hidden")
-	loseBox.classList.add("hidden")
+	winBox.setAttribute("id", "hiddenWin")
+	loseBox.setAttribute("id", "hiddenLose")
 	// loseMsg.style.marginTop = "0px"
 	errCount = 0
 	img.classList.remove("invisible")
@@ -163,7 +163,8 @@ form.addEventListener("submit", function(e) {
 for (let i=0; i < 2; i++) {
 	closeModals[i].addEventListener("submit", function(e) {
 		e.preventDefault()
-		closeModals[i].classList.add("hidden")
+		winBox.setAttribute("id", "hiddenWin")
+		loseBox.setAttribute("id", "hiddenLose")
 	})
 }
 
