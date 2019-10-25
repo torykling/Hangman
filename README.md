@@ -25,3 +25,5 @@
 ## Next Steps
 
 >Ideally I'd like to allow the user to choose from several themes and to select a level of difficulty that would pull random words from different lists. 
+
+>I also want to update the game logic to allow the user to enter special characters in the input field.
