@@ -119,6 +119,7 @@ img {
 }
 .userInput {
 	height: 4rem;
+	width: 40rem;
 }
 .winning, .losing {
 	animation: pulse 3s 1;
