@@ -4,6 +4,11 @@
 >To create an online nonviolent version of the 'hangman' word game
 
 ![Petal Challenge Site](img/gamepic.png)
+## Languages Used
+* HTML
+* CSS
+* JavaScript
+
 ## Installation
 
 >Fork and clone this repository. Open the index.html file in your browser to play the game!
