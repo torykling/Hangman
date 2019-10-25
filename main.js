@@ -95,11 +95,10 @@ function checkLetter(letter) {
 		} 
 		if (errCount > 8) {
 			loseBox.classList.remove("hidden")
-			// loseMsg.style.marginTop = "1rem"
 			img.classList.add("invisible")
 			img.setAttribute("src", "#")
 			keyboard.innerHTML = ""
-			// bigButtonContainer.style.margin = "0 auto"
+			bigButtonContainer.style.margin = "0 auto"
 		}
 }
 

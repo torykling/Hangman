@@ -117,14 +117,15 @@ img {
 }
 .winBox, .loseBox {
 	animation: pulse 3s 1;
+	width: 75%;
 	position: fixed;
-	top: 10%;
-	left: 11.5%;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
 	z-index: 1;
 	padding: 10rem;
 	background-color: white;
 	border-radius: 10px;
-	width: 60%;
 }
 
 .closeModal {
@@ -174,7 +175,7 @@ img {
 		margin-left: 5rem;
 	}
 	.keyboard {
-		margin-top: 1rem;
+		margin-top: 3rem;
 	}
 	h1 {
 		font-size: 6rem;
