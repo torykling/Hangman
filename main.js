@@ -6,9 +6,7 @@ const enterYourOwnButton = document.querySelector("#enter")
 const userInput = document.querySelector(".userInput")
 const main = document.querySelector("main")
 const img = document.querySelector("img")
-const winMsg = document.querySelector(".winning")
 const winBox = document.querySelector(".winBox")
-const loseMsg = document.querySelector(".losing")
 const loseBox = document.querySelector(".loseBox")
 const form = document.querySelector(".inputForm")
 const keyboard = document.querySelector(".keyboard")
@@ -133,7 +131,6 @@ randomButton.addEventListener("click", function(e) {
 	keyboard.innerHTML=""
 	winBox.setAttribute("id", "hiddenWin")
 	loseBox.setAttribute("id", "hiddenLose")
-	// loseMsg.style.marginTop = "0px"
 	errCount = 0
 	img.classList.remove("invisible")
 	img.setAttribute("src", "img/flowerError0.png")
@@ -150,7 +147,6 @@ form.addEventListener("submit", function(e) {
 	keyboard.innerHTML=""
 	winBox.setAttribute("id", "hiddenWin")
 	loseBox.setAttribute("id", "hiddenLose")
-	// loseMsg.style.marginTop = "0px"
 	errCount = 0
 	img.classList.remove("invisible")
 	img.setAttribute("src", "img/flowerError0.png")
