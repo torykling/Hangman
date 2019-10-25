@@ -31,7 +31,7 @@ function buildLines(word) {
 		hiddenDivs[i].innerText = wordArray[i]
 		if (hiddenDivs[i].innerText) {
 			hiddenDivs[i].classList.add("hiddenFont")
-			hiddenDivs[i].style.borderBottom = "2px solid black"
+			// hiddenDivs[i].style.borderBottom = "2px solid black"
 		}		
 	}
 	

@@ -9,6 +9,7 @@ body {
 	background-color: pink;
 	font-family: 'Abril Fatface', cursive;
 	font-size: 3rem;
+	line-height: 4rem;
 }
 h1, h2, h6, main, .keyboard {
 	margin: 0 auto;
@@ -33,6 +34,8 @@ div {
 	font-size: 2.5rem;
 	display: inline-block;
 	margin-left: 8px;
+	border-bottom: 2px solid black;
+	line-height: 7rem;
 }
 main {
 	width: 95%;
@@ -79,7 +82,7 @@ img {
 }
 .bigButtonContainer {
 	width: 30rem;
-	margin: auto 7rem auto 0;
+	margin: 7rem 7rem 0 0;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -87,14 +90,14 @@ img {
 }
 #reset, #enter, #score {
 	max-width: 100%;
-	width: 20rem;
+	width: 10rem;
 	height: 4rem;
 	font-family: 'Poiret One', cursive;
 	margin: 1rem 0;
 	padding: 1rem;
 	border-radius: 1rem;
 	font-weight: bold;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	border: 2px solid grey;
 	align-items: center;
 	background-color: white;
@@ -116,20 +119,29 @@ img {
 	animation: pulse 3s 1;
 	font-size: 3rem;
 	text-align: center;
-	margin: 0;
+	margin: 0 3rem;
 	width: 70%;
+	padding: 5rem 0 ;
+	line-height: 3rem;
+	grid-row: 2 / span 1;
+	grid-column: 2 / span 1;
 }
 .winBox, .loseBox {
 	animation: pulse 3s 1;
-	width: 35%;
+	width: 70%;
+	height: 50%;
 	position: fixed;
 	top: 50%;
 	left: 50%;
     transform: translate(-50%, -50%);
 	z-index: 1;
-	padding: 5rem;
+	padding: 1rem;
 	background-color: white;
 	border-radius: 10px;
+	align-items: center;
+	display: grid;
+	grid-template-columns: 10% 1fr 10%;
+	grid-template-rows: 10% 1fr 10%;
 
 }
 
@@ -139,12 +151,13 @@ img {
 	background-color: white;
 	border: none;
 	font-size: 2rem;
-	float: right;
-	padding: none;
+	padding: 0;
+	grid-row: 1 / span 1;
+	grid-column: 3 / span 1;
 }
 @keyframes pulse {
 	0% {
-		color: pink;
+		color: white;
 	}
 	100% {
 		color: black;
@@ -152,6 +165,9 @@ img {
 }
 
 @media screen and (min-width: 600px) {
+	body {
+		line-height: 6rem;
+	}
 	button {
 		width: 5rem;
 		height: 5rem;
@@ -164,6 +180,20 @@ img {
 		width: 4rem;
 		font-size: 4rem;
 	}
+	.bigButtonContainer {
+		margin-top: 6rem;
+	}
+	.winBox, .loseBox {
+		height: 30%;
+	}
+	.winning, .losing {
+		margin: 0 8rem;
+	}
+	#reset, #enter, #score {
+		font-size: 1.5rem;
+		width: 20rem;
+		height: 4rem;
+	}
 }
 @media screen and (min-width: 800px) {
 	button {
@@ -172,7 +202,7 @@ img {
 		font-size: 3rem;
 	}
 	.bigButtonContainer {
-		margin-top: 5rem;
+		margin-top: 7rem;
 	}
 	img {
 		width: 30%;
@@ -187,10 +217,14 @@ img {
 	}
 	.winBox, .loseBox {
 		width: 75%;
+		height: 60%;
 		padding: 10rem;
+		
 	}
 	.winning, .losing {
 		font-size: 7rem;
+		line-height: 7rem;
+
 	}
 	.closeModal {
 		font-size: 4rem;
