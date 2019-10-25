@@ -48,6 +48,7 @@ button {
 	margin: 3px;
 	border-radius: 1.5rem;
 	border: 2px solid gray;
+	background-color: white;
 }
 button:hover, #reset:hover, #enter:hover {
 	background-color: lightblue;
@@ -96,6 +97,7 @@ img {
 	font-size: 1.5rem;
 	border: 2px solid grey;
 	align-items: center;
+	background-color: white;
 }
 .container {
 	display: flex;
@@ -112,28 +114,31 @@ img {
 }
 .winning, .losing {
 	animation: pulse 3s 1;
-	/*position: fixed;*/
-	font-size: 7rem;
+	font-size: 3rem;
+	text-align: center;
+	margin: 0;
+	width: 70%;
 }
 .winBox, .loseBox {
 	animation: pulse 3s 1;
-	width: 75%;
+	width: 35%;
 	position: fixed;
 	top: 50%;
 	left: 50%;
     transform: translate(-50%, -50%);
 	z-index: 1;
-	padding: 10rem;
+	padding: 5rem;
 	background-color: white;
 	border-radius: 10px;
+
 }
 
 .closeModal {
-	width: 4rem;
-	height: 4rem;
-	background-color: none;
+	width: 2rem;
+	height: 2rem;
+	background-color: white;
 	border: none;
-	font-size: 4rem;
+	font-size: 2rem;
 	float: right;
 	padding: none;
 }
@@ -179,5 +184,17 @@ img {
 	}
 	h1 {
 		font-size: 6rem;
+	}
+	.winBox, .loseBox {
+		width: 75%;
+		padding: 10rem;
+	}
+	.winning, .losing {
+		font-size: 7rem;
+	}
+	.closeModal {
+		font-size: 4rem;
+		width: 4rem;
+		height: 4rem;
 	}
 }
