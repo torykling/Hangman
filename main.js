@@ -7,14 +7,20 @@ const userInput = document.querySelector(".userInput")
 const main = document.querySelector("main")
 const img = document.querySelector("img")
 const winMsg = document.querySelector(".winning")
+const winBox = document.querySelector(".winBox")
 const loseMsg = document.querySelector(".losing")
-const form = document.querySelector("form")
+const loseBox = document.querySelector(".loseBox")
+const form = document.querySelector(".inputForm")
 const keyboard = document.querySelector(".keyboard")
+const closeModals = document.querySelectorAll(".box")
 let score = 0
 let errCount = 0
 // This function builds the blank spaces and hidden divs containing the mystery word letters
 function buildLines(word) {
-	const reveal = document.querySelector(".reveal")
+	const reveals = document.querySelectorAll(".reveal")
+	for (let i = 0; i < 2; i++) {
+		reveals[i].innerText = `${word}`
+	}
 	let wordArray = word.split("")
 	console.log(wordArray)
 	for (let i = 0; i < wordArray.length; i ++) {
@@ -28,7 +34,7 @@ function buildLines(word) {
 			hiddenDivs[i].style.borderBottom = "2px solid black"
 		}		
 	}
-	reveal.innerText = `${word}`
+	
 }
 // This function builds the keyboard
 function buildKeyboard() {
@@ -88,12 +94,12 @@ function checkLetter(letter) {
 			buildError()
 		} 
 		if (errCount > 8) {
-			loseMsg.classList.remove("hidden")
-			loseMsg.style.marginTop = "1rem"
-			img.classList.add("hidden")
+			loseBox.classList.remove("hidden")
+			// loseMsg.style.marginTop = "1rem"
+			img.classList.add("invisible")
 			img.setAttribute("src", "#")
 			keyboard.innerHTML = ""
-			bigButtonContainer.style.margin = "0 auto"
+			// bigButtonContainer.style.margin = "0 auto"
 		}
 }
 
@@ -110,7 +116,7 @@ function play(letter) {
 	}
 	// Added userInput here to prevent winning message from appearing when user enters message.
 	if((blankCount === 0)&&(userInput.classList=="userInput hidden")) {
-		winMsg.classList.remove("hidden")
+		winBox.classList.remove("hidden")
 		score++
 		scoreButton.value = `Score: ${score}`
 		keyboard.innerHTML = ""
@@ -124,13 +130,14 @@ startGame(randomWord)
 randomButton.addEventListener("click", function(e) {
 	e.preventDefault()
 	userInput.classList.add("hidden")
+	keyboard.classList.remove("hidden")
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winMsg.classList.add("hidden")
-	loseMsg.classList.add("hidden")
-	loseMsg.style.marginTop = "0px"
+	winBox.classList.add("hidden")
+	loseBox.classList.add("hidden")
+	// loseMsg.style.marginTop = "0px"
 	errCount = 0
-	img.classList.remove("hidden")
+	img.classList.remove("invisible")
 	img.setAttribute("src", "img/flowerError0.png")
 	let newRandom = randomArray[Math.floor(Math.random()*randomArray.length)]
 	startGame(newRandom)
@@ -143,14 +150,21 @@ form.addEventListener("submit", function(e) {
 	keyboard.classList.toggle("hidden")
 	main.innerHTML=""
 	keyboard.innerHTML=""
-	winMsg.classList.add("hidden")
-	loseMsg.classList.add("hidden")
-	loseMsg.style.marginTop = "0px"
+	winBox.classList.add("hidden")
+	loseBox.classList.add("hidden")
+	// loseMsg.style.marginTop = "0px"
 	errCount = 0
-	img.classList.remove("hidden")
+	img.classList.remove("invisible")
 	img.setAttribute("src", "img/flowerError0.png")
 	let mysteryWord = userInput.value.toLowerCase()
 	startGame(mysteryWord)
 	userInput.value = ""
 })
+// This is the event listener for the modals
+for (let i=0; i < 2; i++) {
+	closeModals[i].addEventListener("submit", function(e) {
+		e.preventDefault()
+		closeModals[i].classList.add("hidden")
+	})
+}
 

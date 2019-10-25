@@ -10,20 +10,25 @@
 	<h1>Petal Challenge</h1>
 	<h6>Guess the word before the petals run out!</h6>
 	<section class="container">
-	<img src="img/flowerError0.png">
+	<img src="img/flowerError0.png" alt="pink flower">
 	<section class ="bigButtonContainer">
 		<input type="submit" id="score" value="Score: 0">
 		<input type="submit" id="reset" value="Random">
-		<form>
+		<form class="inputForm">
 			<input type="submit" id="enter"  value="Enter Your Own">
 			<input class="userInput hidden" type="form" placeholder="Enter a word">
 		</form>
 	</section>
 	</section>
 	
-	
-	<h2 class="winning hidden">You Win!</h2>
-	<h2 class="losing hidden">You Lose! The mystery word was <span class="reveal">word</span>.</h2>
+	<form class="box winBox hidden">
+		<input type="submit" class="closeModal" value="X">
+		<h2 class="winning">You Win! The mystery word was <span class="reveal"></span>.</h2>
+	</form>
+	<form class="box loseBox hidden">
+		<input type="submit" class="closeModal" value="X">
+		<h2 class="losing">You Lose! The mystery word was <span class="reveal"></span>.</h2>
+	</form>
 	<main></main>
 	<section class ="bottom">
 		<section class="keyboard">

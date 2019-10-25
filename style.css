@@ -62,6 +62,9 @@ input {
 .hiddenFont {
 	color: pink;
 }
+.invisible {
+	visibility: hidden;
+}
 .hidden {
 	display: none;
 }
@@ -109,6 +112,29 @@ img {
 }
 .winning, .losing {
 	animation: pulse 3s 1;
+	/*position: fixed;*/
+	font-size: 7rem;
+}
+.winBox, .loseBox {
+	animation: pulse 3s 1;
+	position: fixed;
+	top: 10%;
+	left: 11.5%;
+	z-index: 1;
+	padding: 10rem;
+	background-color: white;
+	border-radius: 10px;
+	width: 60%;
+}
+
+.closeModal {
+	width: 4rem;
+	height: 4rem;
+	background-color: none;
+	border: none;
+	font-size: 4rem;
+	float: right;
+	padding: none;
 }
 @keyframes pulse {
 	0% {
@@ -134,11 +160,23 @@ img {
 	}
 }
 @media screen and (min-width: 800px) {
+	button {
+		width: 7rem;
+		height: 7rem;
+		font-size: 3rem;
+	}
 	.bigButtonContainer {
 		margin-top: 5rem;
 	}
 	img {
-		width: 40%;
-		height: 26.5%;
+		width: 30%;
+		height: 20%;
+		margin-left: 5rem;
+	}
+	.keyboard {
+		margin-top: 1rem;
+	}
+	h1 {
+		font-size: 6rem;
 	}
 }
