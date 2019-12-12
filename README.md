@@ -32,3 +32,7 @@ Initially the images were taking too long to load on mobile, so they had to be r
 Ideally I'd like to allow the user to choose from several themes and to select a level of difficulty that would pull random words from different lists. 
 
 I also want to update the game logic to allow the user to enter special characters in the input field.
+
+## Contribute
+* Source code: https://github.com/torykling/Hangman/
+* Issues: https://github.com/torykling/Hangman/issues
